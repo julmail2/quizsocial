@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.alura.enviadorEmail.EmailService;
+
 import br.com.alura.listavip.model.Convidado;
 import br.com.alura.listavip.service.ConvidadoService;
 
@@ -29,6 +29,8 @@ public class ConvidadoController {
 		
 		model.addAttribute("convidados", convidados);
 		
+		System.out.println("ok");
+		
 		return "listaconvidados";
 	}
 	
@@ -40,7 +42,7 @@ public class ConvidadoController {
 		
 		service.salvar(novoConvidado);
 		
-		new EmailService().enviar(nome, email);
+		//new EmailService().enviar(nome, email);
 		
 		Iterable<Convidado> convidados = service.obterTodos();
 		
